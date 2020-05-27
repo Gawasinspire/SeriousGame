@@ -3,7 +3,7 @@ Bee U - A Game to fight social isolation.
 
 Task
 
-scene0
+scene 0
     Main menu:
     1. Explorer
     2. Friends/Family
