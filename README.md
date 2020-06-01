@@ -16,7 +16,9 @@ scene 2.
     Move and enter into a room
 
 scene 3.
-    In room question and answers
-    scoring.
+    In room,
+	 question
+	 answers
+	 score board
             
     
