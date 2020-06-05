@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player1.gd" type="Script" id=1]
+[ext_resource path="res://gfx/Players/character_maleAdventurer_idle.png" type="Texture" id=2]
+
+[node name="Player1" type="KinematicBody2D"]
+position = Vector2( 333.107, 144.556 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1.85669, 2.78899 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( 1.04752, 2.09502 )
+polygon = PoolVector2Array( -50.0977, -39.4157, -31.7658, -53.7525, -6.24069, -60.3701, 17.3936, -56.5886, 41.9734, -80.223, 47.6456, -83.0591, 55.2086, -69.8238, 60.8808, -42.408, 49.5363, -15.9375, 48.591, -6.4838, 58.0447, 2.02457, 55.2086, 18.0959, 45.7549, 26.6043, 41.028, 25.6589, 39.1372, 32.2765, 58.0447, 49.2933, 65.6077, 71.9822, 67.4984, 101.289, 58.0447, 116.415, 38.1919, 115.469, 31.5742, 113.579, 39.1372, 127.759, -35.5473, 127.759, -39.3288, 120.196, -66.7446, 110.743, -67.69, 65.3646, -42.1649, 29.4404, -50.6733, 9.58755, -40.2742, -5.53842, -46.8918, -28.2274 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

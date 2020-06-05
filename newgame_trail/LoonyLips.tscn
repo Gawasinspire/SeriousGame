@@ -5,12 +5,21 @@
 [ext_resource path="res://gfx/blue_button11.png" type="Texture" id=3]
 [ext_resource path="res://gfx/blue_button12.png" type="Texture" id=4]
 [ext_resource path="res://gfx/Feltpen.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Story.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 outline_color = Color( 0.835294, 0.172549, 0.172549, 1 )
 font_data = ExtResource( 5 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node
+
+export var prompt = [\"\",\"\",\"\"]
+export var story = \"\"
+
+func _ready():
+	pass
+"
 
 [node name="LoonyLips" type="Control"]
 anchor_right = 1.0
@@ -63,11 +72,11 @@ autowrap = true
 [node name="StoryBook" type="Node" parent="."]
 
 [node name="Story0" type="Node" parent="StoryBook"]
-script = ExtResource( 6 )
+script = SubResource( 2 )
 story = "This is a story0"
 
 [node name="Story1" type="Node" parent="StoryBook"]
-script = ExtResource( 6 )
+script = SubResource( 2 )
 story = "This is a story1"
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer/PlayerText" to="." method="_on_PlayerText_text_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
