@@ -101,7 +101,7 @@ margin_right = 159.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
 text = "Exit"
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/ExplorerButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/ExplorerButton" to="." method="_on_ExplorerButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/ExplorerButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/FamilyButton" to="." method="_on_FamilyButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/ExitButton" to="." method="_on_ExitButton_pressed"]

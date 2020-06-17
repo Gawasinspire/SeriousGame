@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="newgame_trail"
-run/main_scene="res://LoonyLips.tscn"
+run/main_scene="res://storyinput.tscn"
 config/icon="res://icon.png"
 
 [input]

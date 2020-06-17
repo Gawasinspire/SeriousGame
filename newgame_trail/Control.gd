@@ -19,7 +19,7 @@ func _ready():
 	DisplayText.text = "Welcome to BeU"
 	check_player_words_length()
 	PlayerText.grab_focus()
-	
+
 
 func pick_current_story():
 	current_story = template[randi() % template.size()]
