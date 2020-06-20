@@ -6,6 +6,8 @@
 [ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 40
+outline_color = Color( 0.788235, 0.164706, 0.164706, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
@@ -14,42 +16,109 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = 9.0
-margin_bottom = 9.0
+margin_left = -71.0
+margin_top = 70.0
+margin_right = 50.0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.517647, 0.211765, 0.737255, 1 )
+text = "    Be U
+	"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 21.0
+margin_top = 107.0
+margin_right = 236.0
+margin_bottom = 157.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HSplitContainer"]
-margin_right = 1024.0
-margin_bottom = 21.0
+margin_right = 236.0
+margin_bottom = 50.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Main Menu"
 
-[node name="ExplorerButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 25.0
-margin_right = 1024.0
-margin_bottom = 74.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 161.0
+margin_right = 236.0
+margin_bottom = 211.0
+
+[node name="ExplorerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_right = 49.0
+margin_bottom = 50.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
-[node name="FamilyButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 78.0
-margin_right = 1024.0
-margin_bottom = 127.0
+[node name="Explorer" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 53.0
+margin_right = 235.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Explorer"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 215.0
+margin_right = 236.0
+margin_bottom = 265.0
+
+[node name="FamilyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 49.0
+margin_bottom = 50.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
-[node name="Exit" type="TextureButton" parent="VBoxContainer"]
-margin_top = 131.0
-margin_right = 1024.0
-margin_bottom = 180.0
+[node name="Family" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 53.0
+margin_right = 197.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Family"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 269.0
+margin_right = 236.0
+margin_bottom = 319.0
+
+[node name="FriendsButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 49.0
+margin_bottom = 50.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
-[connection signal="pressed" from="VBoxContainer/ExplorerButton" to="." method="_on_ExplorerButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/FamilyButton" to="." method="_on_FamilyButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Texture_pressed"]
+
+[node name="Friends" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 53.0
+margin_right = 214.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Friends"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 323.0
+margin_right = 236.0
+margin_bottom = 373.0
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
+margin_right = 49.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Exit" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 53.0
+margin_right = 136.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exit"
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ExplorerButton" to="." method="_on_ExplorerButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/FamilyButton" to="." method="_on_FamilyButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/FriendsButton" to="." method="_on_FriendsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/ExitButton" to="." method="_on_ExitButton_pressed"]
