@@ -1,0 +1,19 @@
+1. Godot is a node by system
+
+
+requirements:
+Audio
+sprites 
+font
+
+1.resizable on/off  -->screen maximize 
+
+
+video 17. queue_free() --> decides what to do for unknown input
+reload current scene --> to play again
+focus ---> to push the player where to start giving his controls
+
+delta is time in seconds between frames
+
+
+In levels players are instanced.
