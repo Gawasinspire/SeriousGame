@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var template = [
 		{"options" :  ["Eric","Informatik","Godot"],
@@ -20,49 +20,41 @@ var a = 1
 
 #var num = 42
 
+func update_question_panel_master():
+	$VBoxContainer/QuestionPanel.text = "1What is your favourite fruit?"
+	
+func check_answer_button_pressed():
+	pass
+
+func update_question_panel_not_master():
+	Question_panel.text = "1 What is your favourite" +"partner`s" +"fruit?"
+
 
 func _ready():
 	if is_network_master():
-		pick_question()
-		Question_panel.text = "What is your favourite fruit?"
-		$VBoxContainer/HBoxContainer/Answer1.text = "apple"
-		$VBoxContainer/HBoxContainer2/Answer2.text = "Mango"
-		$VBoxContainer/HBoxContainer3/Answer3.text = "Banana"
-		$VBoxContainer/HBoxContainer4/Anwer4.text = "None"
+		update_question_panel_master()
 	else:
-		Question_panel.text = "What is your"+ "partners" +"favourite fruit?"
-		$VBoxContainer/HBoxContainer/Answer1.text = "apple"
-		$VBoxContainer/HBoxContainer2/Answer2.text = "Mango"
-		$VBoxContainer/HBoxContainer3/Answer3.text = "Banana"
-		$VBoxContainer/HBoxContainer4/Anwer4.text = "None"
+		update_question_panel_not_master()
 		
 
 func pick_question():
 	randomize()
 	current_question = template[randi() % template.size()]
-
-func update_score():
-	$GUI/Control/bannerHanging/HBoxContainer/score.text = "1"
-		
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
-
-func _on_AnswerButton1_pressed():
-	if is_network_master():
-		$VBoxContainer/HBoxContainer/Answer1.text = "jjj"
-
-	
-
-func _on_AnswerButton2_pressed():
-	pass # Replace with function body.
+#	passpass # Replace with function body.
 
 
-func _on_AnswerButton3_pressed():
-	pass # Replace with function body.
+func _on_Answer1Button_pressed():
+	$VBoxContainer/HBoxContainer/Answer1.text = "ass"
 
+func _on_Answer2Button_pressed():
+	$VBoxContainer/HBoxContainer2/Answer2.text = "gui"
 
-func _on_AnswerButton4_pressed():
-	pass # Replace with function body.
+func _on_Answer3Button_pressed():
+	$VBoxContainer/HBoxContainer3/Answer3.text = "hoiii"
+
+func _on_Answer4Button_pressed():
+	$VBoxContainer/HBoxContainer4/Answer4.text = "jooi"
