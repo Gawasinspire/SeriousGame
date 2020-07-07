@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Mainmenu.gd" type="Script" id=1]
-[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=3]
-[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=4]
+[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 outline_color = Color( 0.788235, 0.164706, 0.164706, 1 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -23,12 +24,17 @@ margin_left = -71.0
 margin_top = 70.0
 margin_right = 50.0
 
+[node name="icon" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 112.044, 35.9949 )
+scale = Vector2( 0.704616, 0.499837 )
+texture = ExtResource( 2 )
+
 [node name="Label2" type="Label" parent="VBoxContainer"]
 margin_right = 236.0
 margin_bottom = 103.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.517647, 0.211765, 0.737255, 1 )
-text = "    Be U
+text = "
 	"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
@@ -51,8 +57,8 @@ margin_bottom = 211.0
 [node name="ExplorerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 margin_right = 49.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 
 [node name="Explorer" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 53.0
@@ -70,8 +76,8 @@ margin_bottom = 265.0
 [node name="FamilyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
 margin_right = 49.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 
 [node name="Family" type="Label" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 53.0
@@ -89,8 +95,8 @@ margin_bottom = 319.0
 [node name="FriendsButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 margin_right = 49.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 
 [node name="Friends" type="Label" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 53.0
@@ -100,16 +106,35 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Friends"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 323.0
 margin_right = 236.0
 margin_bottom = 373.0
 
+[node name="HelpButton" type="TextureButton" parent="VBoxContainer/HBoxContainer5"]
+margin_right = 49.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Friends" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 53.0
+margin_right = 152.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Help"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 377.0
+margin_right = 236.0
+margin_bottom = 427.0
+
 [node name="ExitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
 margin_right = 49.0
 margin_bottom = 50.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 
 [node name="Exit" type="Label" parent="VBoxContainer/HBoxContainer4"]
 margin_left = 53.0
@@ -121,4 +146,5 @@ text = "Exit"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ExplorerButton" to="." method="_on_ExplorerButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/FamilyButton" to="." method="_on_FamilyButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/FriendsButton" to="." method="_on_FriendsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/HelpButton" to="." method="_on_HelpButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/ExitButton" to="." method="_on_ExitButton_pressed"]

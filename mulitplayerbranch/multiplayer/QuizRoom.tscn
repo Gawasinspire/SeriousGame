@@ -40,12 +40,11 @@ texture_pressed = ExtResource( 5 )
 
 [node name="Answer1" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 53.0
-margin_top = 2.0
-margin_right = 54.0
-margin_bottom = 47.0
+margin_top = 14.0
+margin_right = 159.0
+margin_bottom = 35.0
 custom_fonts/font = SubResource( 1 )
-text = "Fing"
-autowrap = true
+text = "Favorite Toy"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 78.0
@@ -60,12 +59,11 @@ texture_pressed = ExtResource( 5 )
 
 [node name="Answer2" type="Label" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 53.0
-margin_top = 2.0
-margin_right = 54.0
-margin_bottom = 47.0
+margin_top = 14.0
+margin_right = 130.0
+margin_bottom = 35.0
 custom_fonts/font = SubResource( 1 )
-text = "Fing"
-autowrap = true
+text = "First kiss"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 131.0
@@ -80,12 +78,11 @@ texture_pressed = ExtResource( 5 )
 
 [node name="Answer3" type="Label" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 53.0
-margin_top = 2.0
-margin_right = 54.0
-margin_bottom = 47.0
+margin_top = 14.0
+margin_right = 126.0
+margin_bottom = 35.0
 custom_fonts/font = SubResource( 1 )
-text = "Fing"
-autowrap = true
+text = "First gift"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 184.0
@@ -100,12 +97,11 @@ texture_pressed = ExtResource( 5 )
 
 [node name="Answer4" type="Label" parent="VBoxContainer/HBoxContainer4"]
 margin_left = 53.0
-margin_top = 2.0
-margin_right = 54.0
-margin_bottom = 47.0
+margin_top = 14.0
+margin_right = 211.0
+margin_bottom = 35.0
 custom_fonts/font = SubResource( 1 )
-text = "Fing"
-autowrap = true
+text = "None of the above"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Answer1Button" to="." method="_on_Answer1Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Answer2Button" to="." method="_on_Answer2Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Answer3Button" to="." method="_on_Answer3Button_pressed"]

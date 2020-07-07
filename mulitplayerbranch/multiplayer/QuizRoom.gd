@@ -21,13 +21,13 @@ var a = 1
 #var num = 42
 
 func update_question_panel_master():
-	$VBoxContainer/QuestionPanel.text = "1What is your favourite fruit?"
+	$VBoxContainer/QuestionPanel.text = "1. What's your favorite childhood memory?"
 	
 func check_answer_button_pressed():
 	pass
 
 func update_question_panel_not_master():
-	Question_panel.text = "1 What is your favourite" +"partner`s" +"fruit?"
+	Question_panel.text = "1. What's your "+"partner`s"+"favorite childhood memory?"
 
 
 func _ready():
@@ -48,13 +48,21 @@ func pick_question():
 
 
 func _on_Answer1Button_pressed():
-	$VBoxContainer/HBoxContainer/Answer1.text = "ass"
+	$VBoxContainer/HBoxContainer/Answer1.text = "First kiss"
+	rpc('_shoot')
 
 func _on_Answer2Button_pressed():
-	$VBoxContainer/HBoxContainer2/Answer2.text = "gui"
+	$VBoxContainer/HBoxContainer2/Answer2.text = "First gift"
 
 func _on_Answer3Button_pressed():
-	$VBoxContainer/HBoxContainer3/Answer3.text = "hoiii"
+	$VBoxContainer/HBoxContainer3/Answer3.text = "Favorite toy"
 
 func _on_Answer4Button_pressed():
-	$VBoxContainer/HBoxContainer4/Answer4.text = "jooi"
+	$VBoxContainer/HBoxContainer4/Answer4.text = "none of the above"
+	
+
+sync func _shoot():
+	if is_network_master():
+		$VBoxContainer/HBoxContainer4/Answer4.text = "master"
+	elif not is_network_master():
+		$VBoxContainer/HBoxContainer4/Answer4.text = "shoot"
