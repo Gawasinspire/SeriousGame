@@ -102,7 +102,11 @@ margin_right = 211.0
 margin_bottom = 35.0
 custom_fonts/font = SubResource( 1 )
 text = "None of the above"
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="ready" from="VBoxContainer/CanvasLayer" to="." method="_on_CanvasLayer_ready"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Answer1Button" to="." method="_on_Answer1Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Answer2Button" to="." method="_on_Answer2Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Answer3Button" to="." method="_on_Answer3Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/Answer4Button" to="." method="_on_Answer4Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
