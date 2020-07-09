@@ -93,7 +93,13 @@ func init(nickname, start_position, is_slave):
 	if is_slave:
 		$Sprite.texture = load('res://player/player-alt.png')
 
-
-
 func _on_Button_pressed():
-	get_tree().change_scene('res://QuizRoom.tscn')
+	if !is_network_master():
+			rpc('_change')
+
+
+sync func _change():
+	if !is_network_master():
+		get_tree().change_scene('res://QuizRoom.tscn')
+	if is_network_master():
+		get_tree().change_scene('res://QuizRoom.tscn')
