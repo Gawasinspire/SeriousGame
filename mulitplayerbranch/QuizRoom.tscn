@@ -1,21 +1,21 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://QuizRoom.gd" type="Script" id=1]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=4]
-[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=5]
-[ext_resource path="res://interface/bar-fill.png" type="Texture" id=6]
-[ext_resource path="res://interface/bar-background.png" type="Texture" id=7]
+[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=3]
+[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=4]
+[ext_resource path="res://interface/bar-fill.png" type="Texture" id=5]
+[ext_resource path="res://interface/bar-background.png" type="Texture" id=6]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -34,8 +34,6 @@ margin_top = 9.0
 margin_right = -12.0
 margin_bottom = -5.0
 
-[node name="CanvasLayer" parent="VBoxContainer" instance=ExtResource( 2 )]
-
 [node name="QuestionPanel" type="Label" parent="VBoxContainer"]
 margin_right = 984.0
 margin_bottom = 21.0
@@ -51,8 +49,8 @@ margin_bottom = 74.0
 [node name="Answer1Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 margin_right = 49.0
 margin_bottom = 49.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 
 [node name="Answer1" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 53.0
@@ -70,8 +68,8 @@ margin_bottom = 127.0
 [node name="Answer2Button" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 margin_right = 49.0
 margin_bottom = 49.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 
 [node name="Answer2" type="Label" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 53.0
@@ -89,8 +87,8 @@ margin_bottom = 180.0
 [node name="Answer3Button" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
 margin_right = 49.0
 margin_bottom = 49.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 
 [node name="Answer3" type="Label" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 53.0
@@ -108,8 +106,8 @@ margin_bottom = 233.0
 [node name="Answer4Button" type="TextureButton" parent="VBoxContainer/HBoxContainer4"]
 margin_right = 49.0
 margin_bottom = 49.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 
 [node name="Answer4" type="Label" parent="VBoxContainer/HBoxContainer4"]
 margin_left = 53.0
@@ -142,7 +140,7 @@ text = "0"
 [node name="bar-fill" type="Sprite" parent="."]
 position = Vector2( 388.5, 338.883 )
 scale = Vector2( 0.984375, 1.05555 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="StatusLabel" type="Label" parent="."]
 margin_left = 363.0
@@ -156,7 +154,7 @@ text = "Status :"
 [node name="bar-background" type="Sprite" parent="."]
 position = Vector2( 574, 338.383 )
 scale = Vector2( 1.96094, 1.08333 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Status" type="Label" parent="."]
 margin_left = 475.0
@@ -167,7 +165,18 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.917647, 0.92549, 0.952941, 1 )
 custom_colors/font_color_shadow = Color( 0.0313726, 0.0156863, 0.0156863, 1 )
 text = "Choose your choice"
-[connection signal="ready" from="VBoxContainer/CanvasLayer" to="." method="_on_CanvasLayer_ready"]
+
+[node name="Status2" type="Label" parent="."]
+margin_left = 618.0
+margin_top = 329.0
+margin_right = 676.0
+margin_bottom = 358.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.92549, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.0313726, 0.0156863, 0.0156863, 1 )
+text = "0"
+
+[node name="GUI" parent="." instance=ExtResource( 7 )]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Answer1Button" to="." method="_on_Answer1Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Answer2Button" to="." method="_on_Answer2Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Answer3Button" to="." method="_on_Answer3Button_pressed"]

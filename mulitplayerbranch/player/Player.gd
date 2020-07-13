@@ -7,11 +7,19 @@ enum MoveDirection { UP, DOWN, LEFT, RIGHT, NONE }
 
 slave var slave_position = Vector2()
 slave var slave_movement = MoveDirection.NONE
-
+onready var p
 var health_points = MAX_HP
 
 func _ready():
 	_update_health_bar()
+	if is_network_master():
+		$Label.visible = false
+		$Label2.visible = false
+		$Button.hide()
+	elif !is_network_master():
+		$Label.visible = true
+		$Label2.visible = true
+
 
 func _physics_process(delta):
 	var direction = MoveDirection.NONE
@@ -33,7 +41,8 @@ func _physics_process(delta):
 		position = slave_position
 	
 	if get_tree().is_network_server():
-		Network.update_position(int(name), position)
+		p = position+position
+		Network.update_position(int(name), p)
 
 func _move(direction):
 	match direction:
