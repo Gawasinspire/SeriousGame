@@ -60,7 +60,8 @@ var finish = "your score"
 var master1 = "player 1 answering"
 var master2 = "player 2 answering"
 var uscore = "yourscore"
-
+var mas = 'm'
+var nmas = 'n'
 var master_answer1 = false
 var master_answer2 = false
 var master_answer3 = false
@@ -88,6 +89,7 @@ func _ready():
 	pick_question(num)
 	pick_answer(num)
 	timer.start()
+	$Status2.visible = false
 
 
 func pick_question(num):
@@ -136,7 +138,7 @@ func _on_Answer1Button_pressed():
 		update_status(master1)
 		
 		#$Control/bannerHanging/HBoxContainer/score.text = "2"
-	else:
+	elif !is_network_master():
 		not_master_answer1 = true
 		not_master_answer2 = false
 		not_master_answer3 = false
@@ -157,7 +159,8 @@ func _on_Answer2Button_pressed():
 		master_answer2 = true
 		master_answer3 = false
 		master_answer4 = false
-	elif not is_network_master():
+		update_status(master1)
+	elif !is_network_master():
 		not_master_answer1 = false
 		not_master_answer2 = true
 		not_master_answer3 = false
@@ -170,11 +173,13 @@ func _on_Answer3Button_pressed():
 		master_answer2 = false
 		master_answer3 = true
 		master_answer4 = false
-	elif not is_network_master():
+		update_status(master1)
+	elif !is_network_master():
 		not_master_answer1 = false
 		not_master_answer2 = false
 		not_master_answer3 = true
 		not_master_answer4 = false
+		update_status(master2)
 		
 
 func _on_Answer4Button_pressed():
@@ -183,70 +188,94 @@ func _on_Answer4Button_pressed():
 		master_answer2 = false
 		master_answer3 = false
 		master_answer4 = true
-	elif not is_network_master():
+		update_status(master1)
+	elif !is_network_master():
 		not_master_answer1 = false
 		not_master_answer2 = false
 		not_master_answer3 = false
 		not_master_answer4 = true
+		update_status(master2)
 		
-	
 
-#sync func _shoo():
-func _process(delta):
-	$Timer/Seconds.text = str(x)
-	if x>20:
-		if master_answer1:
-			rpc('answer1')
-			master_answer1 = false
-		elif master_answer2:
-			rpc('answer2')
-			master_answer2 = false
-		elif master_answer3:
-			rpc('answer3')
-			master_answer3 = false
-		elif master_answer4:
-			rpc('answer4')
-			master_answer4 = false
-		elif not_master_answer1:
-			rpc('answer1')
+func controller(stime):
+	if x>stime:
+		if num%2 == 0:
+			if master_answer1:
+				rpc('answer1',mas)
+				master_answer1 = false
+			elif master_answer2:
+				rpc('answer2',mas)
+				master_answer2 = false
+			elif master_answer3:
+				rpc('answer3',mas)
+				master_answer3 = false
+			elif master_answer4:
+				rpc('answer4',mas)
+				master_answer4 = false
+		else:
+			if not_master_answer1:
+				rpc('answer1',nmas)
+				master_answer1 = false
+			elif not_master_answer2:
+				rpc('answer2',nmas)
+				master_answer2 = false
+			elif not_master_answer3:
+				rpc('answer3',nmas)
+				master_answer3 = false
+			elif not_master_answer4:
+				rpc('answer4',nmas)
+				master_answer4 = false
 		if num < 20:
 			num +=1
+			if is_network_master():
+				update_status(answer)
+			elif !is_network_master():
+				update_status(answer)
 			pick_question(num)
 			pick_answer(num) 
 		elif num >= 20:
+			$Status2.visible = true
 			update_status(uscore)
 			update_status2(scores)
 			timer.set_wait_time(5)
 			get_tree().change_scene('res://Gameover.tscn')
+			num = 0
 		x=0
 
-func update_score():
-	scores +=1
-	get_tree().call_group("GUI","score",scores)
+#sync func _shoo():
+func _process(delta):
+	$Timer/Seconds.text = str(x)
+	controller(10)
+
+sync func update_score(v):
+	if is_network_master():
+		if v == 'm':
+			scores +=1
+			get_tree().call_group("GUI","score",scores)
+	elif !is_network_master():
+		if v == 'n':
+			scores +=1
+			get_tree().call_group("GUI","score",scores)
 
 sync func _on_Timer_timeout():
 	x += 1
 
-sync func answer1():
-	update_status(finish)
+sync func answer1(morn):
 	if not_master_answer1:
-		update_score()
+		rpc('update_score',morn)
 		not_master_answer1 = false
 
-sync func answer2():
-	update_status(finish)
+sync func answer2(morn):
 	if not_master_answer2:
-		update_score()
+		rpc('update_score',morn)
 		not_master_answer2 = false
 
-sync func answer3():
-	update_status(finish)
+sync func answer3(morn):
 	if not_master_answer3:
-		update_score()
+		rpc('update_score',morn)
 		not_master_answer3 = false
 
-sync func answer4():
-	update_status(finish)
+sync func answer4(morn):
 	if not_master_answer4:
-		update_score()
+		rpc('update_score',morn)
 		not_master_answer4 = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level1.gd" type="Script" id=1]
 [ext_resource path="res://player/environment/houseSmallAlt2.png" type="Texture" id=2]
 [ext_resource path="res://player/environment/houseSmallAlt2_open.png" type="Texture" id=3]
 [ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://interface/buttons/arrow-32.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -27,4 +28,23 @@ margin_bottom = 377.526
 custom_fonts/font = SubResource( 1 )
 text = "Parent`s Home
     (Anytime)"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 280.0
+margin_top = 15.0
+margin_right = 437.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "Click the door bell"
+
+[node name="ReturnButton5" type="TextureButton" parent="."]
+margin_left = 953.0
+margin_top = 11.0
+margin_right = 992.0
+margin_bottom = 38.0
+
+[node name="arrow-32" type="Sprite" parent="ReturnButton5"]
+position = Vector2( 19.1831, 12.2064 )
+texture = ExtResource( 5 )
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="ReturnButton5" to="." method="_on_ReturnButton5_pressed"]

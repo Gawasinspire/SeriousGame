@@ -19,3 +19,13 @@ func _on_TextureButton4_pressed():
 
 func _load_game():
 	get_tree().change_scene('res://interface/Menu.tscn')
+	
+func _on_TextureButton5_pressed():
+	get_tree().change_scene('res://Mainmenu.tscn')
+
+func _on_ReturnButton5_pressed():
+	get_tree().change_scene('res://Mainmenu.tscn')
+
+
+func _on_returnButton5_pressed():
+	get_tree().change_scene('res://Mainmenu.tscn')

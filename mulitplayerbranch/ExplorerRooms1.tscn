@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Level1.gd" type="Script" id=1]
 [ext_resource path="res://player/environment/houseSmallAlt2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://player/environment/castleSmall_open.png" type="Texture" id=8]
 [ext_resource path="res://player/environment/houseSmall2.png" type="Texture" id=9]
 [ext_resource path="res://player/environment/houseSmall2_open.png" type="Texture" id=10]
+[ext_resource path="res://interface/buttons/arrow-32.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -41,7 +42,7 @@ margin_top = 25.0
 margin_right = 793.0
 margin_bottom = 97.0
 custom_fonts/font = SubResource( 1 )
-text = "Click on a club house, to engage with someone"
+text = "Click the door bell, to engage with someone"
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 margin_left = 69.7377
@@ -111,7 +112,15 @@ Mittwochs 17-19 uhr"
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+margin_left = 971.0
+margin_top = 6.0
+margin_right = 1003.0
+margin_bottom = 49.0
+texture_normal = ExtResource( 11 )
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="TextureButton3" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="TextureButton4" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton5" to="." method="_on_TextureButton5_pressed"]

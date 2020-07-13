@@ -41,7 +41,7 @@ margin_top = 36.0
 margin_right = 994.0
 margin_bottom = 236.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.945098, 0.984314, 0.94902, 1 )
+custom_colors/font_color = Color( 0.0431373, 0.376471, 0.0784314, 1 )
 text = "Interact to get socializing score!  The game to fight isolation and learn people!
 
 The goal is: learn new people, get to know the people (friends/family) better, fight isolation.
@@ -68,7 +68,7 @@ margin_top = 270.0
 margin_right = 994.0
 margin_bottom = 470.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.945098, 0.984314, 0.94902, 1 )
+custom_colors/font_color = Color( 0.0431373, 0.482353, 0.0862745, 1 )
 text = "    • Choose the suitable platform (e.g., Friends/ Family/ Explorer).
 		       -> newbie > Explorer ( Join to the house of your interest and make friends )
 				       -> Friends or Family > play with friends/family members in respective house to get know  them better
