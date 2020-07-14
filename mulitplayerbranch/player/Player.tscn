@@ -69,6 +69,6 @@ margin_bottom = 37.0
 custom_fonts/font = SubResource( 2 )
 text = " 
 
-Joiner-> click this buttonto play"
+     click this button to play"
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

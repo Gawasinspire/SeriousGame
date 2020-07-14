@@ -13,11 +13,11 @@ var health_points = MAX_HP
 func _ready():
 	_update_health_bar()
 	if is_network_master():
-		$Label.visible = false
+		$Label.visible = true
 		$Label2.visible = false
 		$Button.hide()
 	elif !is_network_master():
-		$Label.visible = true
+		$Label.visible = false
 		$Label2.visible = true
 
 
