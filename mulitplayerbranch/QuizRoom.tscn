@@ -142,6 +142,11 @@ position = Vector2( 388.5, 338.883 )
 scale = Vector2( 0.984375, 1.05555 )
 texture = ExtResource( 5 )
 
+[node name="bar-fill2" type="Sprite" parent="."]
+position = Vector2( 387.208, 383.469 )
+scale = Vector2( 0.923796, 1.01965 )
+texture = ExtResource( 5 )
+
 [node name="StatusLabel" type="Label" parent="."]
 margin_left = 363.0
 margin_top = 330.0
@@ -151,9 +156,23 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Status :"
 
+[node name="StatusLabel2" type="Label" parent="."]
+margin_left = 336.0
+margin_top = 373.0
+margin_right = 452.0
+margin_bottom = 399.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Feedback :"
+
 [node name="bar-background" type="Sprite" parent="."]
 position = Vector2( 574, 338.383 )
 scale = Vector2( 1.96094, 1.08333 )
+texture = ExtResource( 6 )
+
+[node name="bar-background2" type="Sprite" parent="."]
+position = Vector2( 615.809, 383.244 )
+scale = Vector2( 2.67436, 0.848044 )
 texture = ExtResource( 6 )
 
 [node name="Status" type="Label" parent="."]
@@ -166,6 +185,16 @@ custom_colors/font_color = Color( 0.917647, 0.92549, 0.952941, 1 )
 custom_colors/font_color_shadow = Color( 0.0313726, 0.0156863, 0.0156863, 1 )
 text = "Choose your choice"
 
+[node name="Feedback" type="Label" parent="."]
+margin_left = 483.0
+margin_top = 373.0
+margin_right = 761.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.92549, 0.952941, 1 )
+custom_colors/font_color_shadow = Color( 0.0313726, 0.0156863, 0.0156863, 1 )
+text = "Last answer"
+
 [node name="Status2" type="Label" parent="."]
 margin_left = 618.0
 margin_top = 329.0
@@ -177,8 +206,25 @@ custom_colors/font_color_shadow = Color( 0.0313726, 0.0156863, 0.0156863, 1 )
 text = "0"
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
+
+[node name="PlayagainButton" type="TextureButton" parent="."]
+margin_left = 368.288
+margin_top = 140.013
+margin_right = 417.288
+margin_bottom = 189.013
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Playagain" type="Label" parent="."]
+margin_left = 431.0
+margin_top = 150.0
+margin_right = 589.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 1 )
+text = "Play Again"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Answer1Button" to="." method="_on_Answer1Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Answer2Button" to="." method="_on_Answer2Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Answer3Button" to="." method="_on_Answer3Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/Answer4Button" to="." method="_on_Answer4Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="PlayagainButton" to="." method="_on_PlayagainButton_pressed"]

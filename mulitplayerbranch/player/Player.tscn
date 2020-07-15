@@ -4,16 +4,16 @@
 [ext_resource path="res://player/player.png" type="Texture" id=2]
 [ext_resource path="res://weapons/rifle/Rifle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=5]
-[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=6]
-[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://interface/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://interface/buttons/green_button07.png" type="Texture" id=6]
+[ext_resource path="res://interface/buttons/green_button08.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.5014, 72.3719 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
-font_data = ExtResource( 7 )
+font_data = ExtResource( 5 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "players",
@@ -46,29 +46,34 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 
-[node name="Button" type="TextureButton" parent="."]
-margin_left = 151.588
-margin_top = 19.1694
-margin_right = 212.588
-margin_bottom = 74.1694
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="Label" type="Label" parent="."]
-margin_top = -105.0
-margin_right = 350.0
-margin_bottom = 37.0
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 363.0
+margin_top = 10.0
+margin_right = 823.0
+margin_bottom = 147.0
 custom_fonts/font = SubResource( 2 )
 text = "        Wait for your partner 
            "
 
-[node name="Label2" type="Label" parent="."]
-margin_top = -105.0
-margin_right = 350.0
-margin_bottom = 37.0
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 371.0
+margin_top = 13.0
+margin_right = 827.0
+margin_bottom = 147.0
 custom_fonts/font = SubResource( 2 )
 text = " 
 
-     click this button to play"
+     Click this button to play"
+
+[node name="Button" type="TextureButton" parent="CanvasLayer"]
+margin_left = 747.364
+margin_top = 74.7405
+margin_right = 808.364
+margin_bottom = 129.74
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
